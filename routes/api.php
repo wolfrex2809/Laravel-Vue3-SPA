@@ -17,9 +17,11 @@ use App\Http\Controllers\RaceController;
 */
 
 
-Route::post('/pet/store', [PetController::class, 'store']);
 Route::get('/pet', [PetController::class, 'index']);
 Route::get('/pet/{pet}', [PetController::class, 'show']);
+Route::post('/pet/store', [PetController::class, 'store']);
+Route::post('/pet/update/{pet}', [PetController::class, 'update']);
+Route::delete('/pet/delete/{pet}', [PetController::class, 'destroy']);
 
 
 

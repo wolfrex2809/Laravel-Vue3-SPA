@@ -55,8 +55,7 @@ class PetController extends Controller
 
             return response()->json([
                 'success' => true,
-                'pet' => !empty($pet) ? $pet->makeHidden(['created_at', 'updated_at', 'deleted_at', 'race_id']) : null,
-                'race' => !empty($pet) ? $pet->race()->first() : null
+                'pet' => !empty($pet) ? $pet->load('race')->makeHidden(['created_at', 'updated_at', 'deleted_at']) : null,
             ]);
             
         }  catch (QueryException $e) {
